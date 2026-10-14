@@ -137,5 +137,13 @@ const users = [
 ];
 
 const db = { users, team, engagements, tasks, documents, activity };
-fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(db, null, 2) + '\n');
+const json = JSON.stringify(db, null, 2) + '\n';
+
+// Copy bundled into production builds, where the in-browser API serves it.
+fs.writeFileSync(path.join(__dirname, '../src/app/core/mock/demo-data.json'), json);
+
+// DEMO_ONLY=1 refreshes the bundled copy without resetting your local json-server data.
+if (!process.env.DEMO_ONLY) {
+  fs.writeFileSync(path.join(__dirname, 'db.json'), json);
+}
 console.log(`Seeded ${engagements.length} engagements, ${tasks.length} tasks, ${documents.length} documents.`);

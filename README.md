@@ -24,6 +24,12 @@ npm run build   # production build
 npm run seed    # reset mock data (stop npm start first, then start it again)
 ```
 
+## Deployed demo (no backend)
+
+Production builds (`npm run build`, e.g. on AWS Amplify) have no server, so `mockApiInterceptor` answers every `/api` call in the browser using a copy of the seed data (`src/app/core/mock/demo-data.json`). It supports the same filters, search, sorting, paging, login, and create/edit as json-server. Changes are kept in sessionStorage until the tab closes. Local development (`npm start`) still uses json-server through the proxy.
+
+The switch is `useInBrowserApi` in `src/environments/`. After changing `mock-api/seed.js`, run `DEMO_ONLY=1 npm run seed` to refresh the bundled copy without resetting your local data.
+
 ## Pages
 
 | Page | Highlights |

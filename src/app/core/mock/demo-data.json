@@ -1,0 +1,2163 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "email": "sarah.mitchell@northbridge.com",
+      "password": "Demo1234!",
+      "name": "Sarah Mitchell",
+      "initials": "SM",
+      "title": "Engagement Manager"
+    }
+  ],
+  "team": [
+    {
+      "id": "u1",
+      "name": "Sarah Mitchell",
+      "initials": "SM",
+      "role": "Manager",
+      "title": "Engagement Manager",
+      "email": "sarah.mitchell@northbridge.com",
+      "utilization": 84,
+      "availableHours": 160
+    },
+    {
+      "id": "u2",
+      "name": "James Wilson",
+      "initials": "JW",
+      "role": "Manager",
+      "title": "Tax Manager",
+      "email": "james.wilson@northbridge.com",
+      "utilization": 76,
+      "availableHours": 160
+    },
+    {
+      "id": "u3",
+      "name": "Daniel Brooks",
+      "initials": "DB",
+      "role": "Senior",
+      "title": "Senior Auditor",
+      "email": "daniel.brooks@northbridge.com",
+      "utilization": 94,
+      "availableHours": 160
+    },
+    {
+      "id": "u4",
+      "name": "Emily Chen",
+      "initials": "EC",
+      "role": "Partner",
+      "title": "Consulting Partner",
+      "email": "emily.chen@northbridge.com",
+      "utilization": 62,
+      "availableHours": 120
+    },
+    {
+      "id": "u5",
+      "name": "Olivia Patel",
+      "initials": "OP",
+      "role": "Staff",
+      "title": "Staff Consultant",
+      "email": "olivia.patel@northbridge.com",
+      "utilization": 76,
+      "availableHours": 160
+    },
+    {
+      "id": "u6",
+      "name": "Marcus Reed",
+      "initials": "MR",
+      "role": "Senior",
+      "title": "Senior Tax Associate",
+      "email": "marcus.reed@northbridge.com",
+      "utilization": 88,
+      "availableHours": 160
+    },
+    {
+      "id": "u7",
+      "name": "Priya Nair",
+      "initials": "PN",
+      "role": "Staff",
+      "title": "Staff Auditor",
+      "email": "priya.nair@northbridge.com",
+      "utilization": 58,
+      "availableHours": 160
+    },
+    {
+      "id": "u8",
+      "name": "Robert Hayes",
+      "initials": "RH",
+      "role": "Partner",
+      "title": "Audit Partner",
+      "email": "robert.hayes@northbridge.com",
+      "utilization": 49,
+      "availableHours": 120
+    }
+  ],
+  "engagements": [
+    {
+      "id": "1",
+      "partnerId": "u4",
+      "teamIds": [
+        "u1",
+        "u3",
+        "u4",
+        "u5"
+      ],
+      "description": "FY2026 Financial Audit for Acme Corporation.",
+      "archived": false,
+      "client": "Acme Corporation",
+      "name": "FY2026 Financial Audit",
+      "serviceLine": "Audit",
+      "managerId": "u1",
+      "startDate": "2026-10-01",
+      "dueDate": "2026-10-30",
+      "budgetHours": 240,
+      "actualHours": 187.2,
+      "status": "In Progress",
+      "code": "AUD-2026-014"
+    },
+    {
+      "id": "2",
+      "partnerId": "u8",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u6",
+        "u7"
+      ],
+      "description": "Q3 Tax Compliance for Beacon Industries.",
+      "archived": false,
+      "client": "Beacon Industries",
+      "name": "Q3 Tax Compliance",
+      "serviceLine": "Tax",
+      "managerId": "u2",
+      "startDate": "2026-09-15",
+      "dueDate": "2026-10-14",
+      "budgetHours": 200,
+      "actualHours": 90,
+      "status": "In Progress",
+      "code": "TAX-2026-032"
+    },
+    {
+      "id": "3",
+      "partnerId": "u4",
+      "teamIds": [
+        "u1",
+        "u4",
+        "u5",
+        "u3"
+      ],
+      "description": "Operating Model Review for Cedar Health.",
+      "archived": false,
+      "client": "Cedar Health",
+      "name": "Operating Model Review",
+      "serviceLine": "Consulting",
+      "managerId": "u1",
+      "startDate": "2026-08-18",
+      "dueDate": "2026-10-16",
+      "budgetHours": 320,
+      "actualHours": 336,
+      "status": "Review",
+      "code": "CON-2026-009"
+    },
+    {
+      "id": "4",
+      "partnerId": "u8",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u3",
+        "u7"
+      ],
+      "description": "Internal Controls Audit for Horizon Logistics.",
+      "archived": false,
+      "client": "Horizon Logistics",
+      "name": "Internal Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u2",
+      "startDate": "2026-09-01",
+      "dueDate": "2026-10-15",
+      "budgetHours": 400,
+      "actualHours": 260,
+      "status": "Review",
+      "code": "AUD-2026-021"
+    },
+    {
+      "id": "5",
+      "partnerId": "u8",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u6",
+        "u7"
+      ],
+      "description": "FY2025 Tax Provision for Meridian Group.",
+      "archived": false,
+      "client": "Meridian Group",
+      "name": "FY2025 Tax Provision",
+      "serviceLine": "Tax",
+      "managerId": "u2",
+      "startDate": "2026-08-04",
+      "dueDate": "2026-10-09",
+      "budgetHours": 180,
+      "actualHours": 180,
+      "status": "Completed",
+      "code": "TAX-2026-018"
+    },
+    {
+      "id": "6",
+      "partnerId": "u4",
+      "teamIds": [
+        "u1",
+        "u4",
+        "u5",
+        "u3"
+      ],
+      "description": "Finance Transformation for Summit Capital.",
+      "archived": false,
+      "client": "Summit Capital",
+      "name": "Finance Transformation",
+      "serviceLine": "Consulting",
+      "managerId": "u1",
+      "startDate": "2026-10-05",
+      "dueDate": "2026-11-06",
+      "budgetHours": 500,
+      "actualHours": 100,
+      "status": "Planning",
+      "code": "CON-2026-016"
+    },
+    {
+      "id": "7",
+      "code": "AUD-2026-031",
+      "client": "Atlas Energy",
+      "name": "IT General Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-07-28",
+      "dueDate": "2026-11-13",
+      "budgetHours": 240,
+      "actualHours": 228,
+      "status": "Completed",
+      "description": "IT General Controls Audit for Atlas Energy.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "8",
+      "code": "TAX-2026-041",
+      "client": "Bluewater Foods",
+      "name": "R&D Credit Claim",
+      "serviceLine": "Tax",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-08-24",
+      "dueDate": "2026-11-06",
+      "budgetHours": 300,
+      "actualHours": 318,
+      "status": "Review",
+      "description": "R&D Credit Claim for Bluewater Foods.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "9",
+      "code": "AUD-2026-032",
+      "client": "Crescent Retail",
+      "name": "IT General Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u2",
+      "partnerId": "u8",
+      "startDate": "2026-07-08",
+      "dueDate": "2026-11-10",
+      "budgetHours": 200,
+      "actualHours": 64,
+      "status": "In Progress",
+      "description": "IT General Controls Audit for Crescent Retail.",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u3"
+      ],
+      "archived": false
+    },
+    {
+      "id": "10",
+      "code": "TAX-2026-042",
+      "client": "Delta Aerospace",
+      "name": "Transfer Pricing Study",
+      "serviceLine": "Tax",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-09-08",
+      "dueDate": "2026-12-17",
+      "budgetHours": 160,
+      "actualHours": 158.4,
+      "status": "Review",
+      "description": "Transfer Pricing Study for Delta Aerospace.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u6"
+      ],
+      "archived": false
+    },
+    {
+      "id": "11",
+      "code": "AUD-2026-033",
+      "client": "Evergreen Bank",
+      "name": "IT General Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u2",
+      "partnerId": "u8",
+      "startDate": "2026-08-11",
+      "dueDate": "2026-11-18",
+      "budgetHours": 160,
+      "actualHours": 115.2,
+      "status": "In Progress",
+      "description": "IT General Controls Audit for Evergreen Bank.",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "12",
+      "code": "TAX-2026-043",
+      "client": "Falcon Media",
+      "name": "R&D Credit Claim",
+      "serviceLine": "Tax",
+      "managerId": "u2",
+      "partnerId": "u8",
+      "startDate": "2026-07-06",
+      "dueDate": "2026-10-09",
+      "budgetHours": 300,
+      "actualHours": 141,
+      "status": "In Progress",
+      "description": "R&D Credit Claim for Falcon Media.",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "13",
+      "code": "CON-2026-021",
+      "client": "Granite Partners",
+      "name": "ERP Selection",
+      "serviceLine": "Consulting",
+      "managerId": "u2",
+      "partnerId": "u4",
+      "startDate": "2026-07-20",
+      "dueDate": "2026-12-13",
+      "budgetHours": 240,
+      "actualHours": 127.2,
+      "status": "In Progress",
+      "description": "ERP Selection for Granite Partners.",
+      "teamIds": [
+        "u2",
+        "u4",
+        "u5"
+      ],
+      "archived": false
+    },
+    {
+      "id": "14",
+      "code": "TAX-2026-044",
+      "client": "Harbor Insurance",
+      "name": "R&D Credit Claim",
+      "serviceLine": "Tax",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-09-17",
+      "dueDate": "2026-10-21",
+      "budgetHours": 120,
+      "actualHours": 67.2,
+      "status": "In Progress",
+      "description": "R&D Credit Claim for Harbor Insurance.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "15",
+      "code": "TAX-2026-045",
+      "client": "Ironwood Manufacturing",
+      "name": "Indirect Tax Review",
+      "serviceLine": "Tax",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-07-23",
+      "dueDate": "2026-12-27",
+      "budgetHours": 120,
+      "actualHours": 120,
+      "status": "Completed",
+      "description": "Indirect Tax Review for Ironwood Manufacturing.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u6"
+      ],
+      "archived": false
+    },
+    {
+      "id": "16",
+      "code": "CON-2026-022",
+      "client": "Juniper Labs",
+      "name": "ERP Selection",
+      "serviceLine": "Consulting",
+      "managerId": "u1",
+      "partnerId": "u4",
+      "startDate": "2026-08-01",
+      "dueDate": "2026-10-04",
+      "budgetHours": 400,
+      "actualHours": 348,
+      "status": "In Progress",
+      "description": "ERP Selection for Juniper Labs.",
+      "teamIds": [
+        "u1",
+        "u4",
+        "u3"
+      ],
+      "archived": false
+    },
+    {
+      "id": "17",
+      "code": "AUD-2026-034",
+      "client": "Keystone Pharma",
+      "name": "SOX Readiness Review",
+      "serviceLine": "Audit",
+      "managerId": "u2",
+      "partnerId": "u8",
+      "startDate": "2026-08-19",
+      "dueDate": "2026-10-13",
+      "budgetHours": 200,
+      "actualHours": 74,
+      "status": "In Progress",
+      "description": "SOX Readiness Review for Keystone Pharma.",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u3"
+      ],
+      "archived": false
+    },
+    {
+      "id": "18",
+      "code": "CON-2026-023",
+      "client": "Lakeside Hotels",
+      "name": "Cost Reduction Program",
+      "serviceLine": "Consulting",
+      "managerId": "u2",
+      "partnerId": "u4",
+      "startDate": "2026-07-18",
+      "dueDate": "2026-11-08",
+      "budgetHours": 200,
+      "actualHours": 164,
+      "status": "Review",
+      "description": "Cost Reduction Program for Lakeside Hotels.",
+      "teamIds": [
+        "u2",
+        "u4",
+        "u5"
+      ],
+      "archived": false
+    },
+    {
+      "id": "19",
+      "code": "CON-2026-024",
+      "client": "Monarch Telecom",
+      "name": "ERP Selection",
+      "serviceLine": "Consulting",
+      "managerId": "u1",
+      "partnerId": "u4",
+      "startDate": "2026-08-27",
+      "dueDate": "2026-12-01",
+      "budgetHours": 120,
+      "actualHours": 75.6,
+      "status": "In Progress",
+      "description": "ERP Selection for Monarch Telecom.",
+      "teamIds": [
+        "u1",
+        "u4",
+        "u5"
+      ],
+      "archived": false
+    },
+    {
+      "id": "20",
+      "code": "TAX-2026-046",
+      "client": "Northstar Freight",
+      "name": "State Tax Nexus Review",
+      "serviceLine": "Tax",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-09-27",
+      "dueDate": "2026-10-04",
+      "budgetHours": 240,
+      "actualHours": 33.6,
+      "status": "Planning",
+      "description": "State Tax Nexus Review for Northstar Freight.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "21",
+      "code": "AUD-2026-035",
+      "client": "Oakridge Holdings",
+      "name": "IT General Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-08-13",
+      "dueDate": "2026-10-15",
+      "budgetHours": 120,
+      "actualHours": 44.4,
+      "status": "In Progress",
+      "description": "IT General Controls Audit for Oakridge Holdings.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "22",
+      "code": "AUD-2026-036",
+      "client": "Pinnacle Software",
+      "name": "IT General Controls Audit",
+      "serviceLine": "Audit",
+      "managerId": "u1",
+      "partnerId": "u8",
+      "startDate": "2026-07-17",
+      "dueDate": "2026-12-20",
+      "budgetHours": 240,
+      "actualHours": 218.4,
+      "status": "In Progress",
+      "description": "IT General Controls Audit for Pinnacle Software.",
+      "teamIds": [
+        "u1",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "23",
+      "code": "AUD-2026-037",
+      "client": "Quarry Materials",
+      "name": "Revenue Recognition Audit",
+      "serviceLine": "Audit",
+      "managerId": "u2",
+      "partnerId": "u8",
+      "startDate": "2026-09-01",
+      "dueDate": "2026-11-24",
+      "budgetHours": 160,
+      "actualHours": 155.2,
+      "status": "Review",
+      "description": "Revenue Recognition Audit for Quarry Materials.",
+      "teamIds": [
+        "u2",
+        "u8",
+        "u7"
+      ],
+      "archived": false
+    },
+    {
+      "id": "24",
+      "code": "CON-2026-025",
+      "client": "Redwood Energy",
+      "name": "Cyber Risk Assessment",
+      "serviceLine": "Consulting",
+      "managerId": "u1",
+      "partnerId": "u4",
+      "startDate": "2026-09-21",
+      "dueDate": "2026-12-14",
+      "budgetHours": 400,
+      "actualHours": 364,
+      "status": "In Progress",
+      "description": "Cyber Risk Assessment for Redwood Energy.",
+      "teamIds": [
+        "u1",
+        "u4",
+        "u5"
+      ],
+      "archived": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "engagementId": "1",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-12",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "2",
+      "engagementId": "1",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u5",
+      "dueDate": "2026-10-09",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "3",
+      "engagementId": "1",
+      "title": "Test revenue recognition",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-14",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "4",
+      "engagementId": "1",
+      "title": "Review audit workpapers",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-21",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "5",
+      "engagementId": "1",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u4",
+      "dueDate": "2026-10-30",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "6",
+      "engagementId": "2",
+      "title": "Gather trial balance",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-14",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "7",
+      "engagementId": "2",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-14",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "8",
+      "engagementId": "2",
+      "title": "Calculate provision",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-14",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "9",
+      "engagementId": "2",
+      "title": "Manager review",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-14",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "10",
+      "engagementId": "2",
+      "title": "File return",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-14",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "11",
+      "engagementId": "3",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-16",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "12",
+      "engagementId": "3",
+      "title": "Current state assessment",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-16",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "13",
+      "engagementId": "3",
+      "title": "Draft recommendations",
+      "assigneeId": "u4",
+      "dueDate": "2026-10-16",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "14",
+      "engagementId": "3",
+      "title": "Steering committee review",
+      "assigneeId": "u4",
+      "dueDate": "2026-10-16",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "15",
+      "engagementId": "3",
+      "title": "Deliver final report",
+      "assigneeId": "u4",
+      "dueDate": "2026-10-16",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "16",
+      "engagementId": "4",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "17",
+      "engagementId": "4",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "18",
+      "engagementId": "4",
+      "title": "Test revenue recognition",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": "19",
+      "engagementId": "4",
+      "title": "Review audit workpapers",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-15",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "20",
+      "engagementId": "4",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-15",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "21",
+      "engagementId": "5",
+      "title": "Gather trial balance",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-09",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "22",
+      "engagementId": "5",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "23",
+      "engagementId": "5",
+      "title": "Calculate provision",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-09",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "24",
+      "engagementId": "5",
+      "title": "Manager review",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-09",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "25",
+      "engagementId": "5",
+      "title": "File return",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "26",
+      "engagementId": "6",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u3",
+      "dueDate": "2026-11-06",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "27",
+      "engagementId": "6",
+      "title": "Current state assessment",
+      "assigneeId": "u5",
+      "dueDate": "2026-11-06",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "28",
+      "engagementId": "6",
+      "title": "Draft recommendations",
+      "assigneeId": "u5",
+      "dueDate": "2026-11-06",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "29",
+      "engagementId": "6",
+      "title": "Steering committee review",
+      "assigneeId": "u5",
+      "dueDate": "2026-11-06",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "30",
+      "engagementId": "6",
+      "title": "Deliver final report",
+      "assigneeId": "u1",
+      "dueDate": "2026-11-06",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "31",
+      "engagementId": "7",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-13",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "32",
+      "engagementId": "7",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u1",
+      "dueDate": "2026-11-13",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "33",
+      "engagementId": "7",
+      "title": "Test revenue recognition",
+      "assigneeId": "u1",
+      "dueDate": "2026-11-13",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "34",
+      "engagementId": "7",
+      "title": "Review audit workpapers",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-13",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "35",
+      "engagementId": "7",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-13",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "36",
+      "engagementId": "8",
+      "title": "Gather trial balance",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-06",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "37",
+      "engagementId": "8",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-06",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "38",
+      "engagementId": "8",
+      "title": "Calculate provision",
+      "assigneeId": "u8",
+      "dueDate": "2026-11-06",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "39",
+      "engagementId": "8",
+      "title": "Manager review",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-06",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "40",
+      "engagementId": "8",
+      "title": "File return",
+      "assigneeId": "u1",
+      "dueDate": "2026-11-06",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "41",
+      "engagementId": "9",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-10",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "42",
+      "engagementId": "9",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-10",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "43",
+      "engagementId": "9",
+      "title": "Test revenue recognition",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-10",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": "44",
+      "engagementId": "9",
+      "title": "Review audit workpapers",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-10",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "45",
+      "engagementId": "9",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u3",
+      "dueDate": "2026-11-10",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "46",
+      "engagementId": "10",
+      "title": "Gather trial balance",
+      "assigneeId": "u8",
+      "dueDate": "2026-12-17",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "47",
+      "engagementId": "10",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u6",
+      "dueDate": "2026-12-17",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "48",
+      "engagementId": "10",
+      "title": "Calculate provision",
+      "assigneeId": "u8",
+      "dueDate": "2026-12-17",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": "49",
+      "engagementId": "10",
+      "title": "Manager review",
+      "assigneeId": "u8",
+      "dueDate": "2026-12-17",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "50",
+      "engagementId": "10",
+      "title": "File return",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-17",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "51",
+      "engagementId": "11",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-18",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "52",
+      "engagementId": "11",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u8",
+      "dueDate": "2026-11-18",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "53",
+      "engagementId": "11",
+      "title": "Test revenue recognition",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-18",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": "54",
+      "engagementId": "11",
+      "title": "Review audit workpapers",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-18",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "55",
+      "engagementId": "11",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-18",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "56",
+      "engagementId": "12",
+      "title": "Gather trial balance",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-09",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "57",
+      "engagementId": "12",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "58",
+      "engagementId": "12",
+      "title": "Calculate provision",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "59",
+      "engagementId": "12",
+      "title": "Manager review",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "60",
+      "engagementId": "12",
+      "title": "File return",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-09",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "61",
+      "engagementId": "13",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u4",
+      "dueDate": "2026-12-13",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "62",
+      "engagementId": "13",
+      "title": "Current state assessment",
+      "assigneeId": "u5",
+      "dueDate": "2026-12-13",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "63",
+      "engagementId": "13",
+      "title": "Draft recommendations",
+      "assigneeId": "u4",
+      "dueDate": "2026-12-13",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "64",
+      "engagementId": "13",
+      "title": "Steering committee review",
+      "assigneeId": "u2",
+      "dueDate": "2026-12-13",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "65",
+      "engagementId": "13",
+      "title": "Deliver final report",
+      "assigneeId": "u5",
+      "dueDate": "2026-12-13",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "66",
+      "engagementId": "14",
+      "title": "Gather trial balance",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-21",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "67",
+      "engagementId": "14",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-21",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "68",
+      "engagementId": "14",
+      "title": "Calculate provision",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-21",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "69",
+      "engagementId": "14",
+      "title": "Manager review",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-21",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "70",
+      "engagementId": "14",
+      "title": "File return",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-21",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "71",
+      "engagementId": "15",
+      "title": "Gather trial balance",
+      "assigneeId": "u6",
+      "dueDate": "2026-12-27",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "72",
+      "engagementId": "15",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u6",
+      "dueDate": "2026-12-27",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "73",
+      "engagementId": "15",
+      "title": "Calculate provision",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-27",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "74",
+      "engagementId": "15",
+      "title": "Manager review",
+      "assigneeId": "u6",
+      "dueDate": "2026-12-27",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "75",
+      "engagementId": "15",
+      "title": "File return",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-27",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "76",
+      "engagementId": "16",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-04",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "77",
+      "engagementId": "16",
+      "title": "Current state assessment",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-04",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "78",
+      "engagementId": "16",
+      "title": "Draft recommendations",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-04",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "79",
+      "engagementId": "16",
+      "title": "Steering committee review",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-04",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "80",
+      "engagementId": "16",
+      "title": "Deliver final report",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-04",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "81",
+      "engagementId": "17",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-13",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "82",
+      "engagementId": "17",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-13",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "83",
+      "engagementId": "17",
+      "title": "Test revenue recognition",
+      "assigneeId": "u2",
+      "dueDate": "2026-10-13",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "84",
+      "engagementId": "17",
+      "title": "Review audit workpapers",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-13",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "85",
+      "engagementId": "17",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u3",
+      "dueDate": "2026-10-13",
+      "priority": "Medium",
+      "status": "Planning"
+    },
+    {
+      "id": "86",
+      "engagementId": "18",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-08",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "87",
+      "engagementId": "18",
+      "title": "Current state assessment",
+      "assigneeId": "u4",
+      "dueDate": "2026-11-08",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "88",
+      "engagementId": "18",
+      "title": "Draft recommendations",
+      "assigneeId": "u2",
+      "dueDate": "2026-11-08",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "89",
+      "engagementId": "18",
+      "title": "Steering committee review",
+      "assigneeId": "u4",
+      "dueDate": "2026-11-08",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "90",
+      "engagementId": "18",
+      "title": "Deliver final report",
+      "assigneeId": "u5",
+      "dueDate": "2026-11-08",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "91",
+      "engagementId": "19",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-01",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "92",
+      "engagementId": "19",
+      "title": "Current state assessment",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-01",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "93",
+      "engagementId": "19",
+      "title": "Draft recommendations",
+      "assigneeId": "u4",
+      "dueDate": "2026-12-01",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "94",
+      "engagementId": "19",
+      "title": "Steering committee review",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-01",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "95",
+      "engagementId": "19",
+      "title": "Deliver final report",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-01",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "96",
+      "engagementId": "20",
+      "title": "Gather trial balance",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-04",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "97",
+      "engagementId": "20",
+      "title": "Prepare tax workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-04",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "98",
+      "engagementId": "20",
+      "title": "Calculate provision",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-04",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "99",
+      "engagementId": "20",
+      "title": "Manager review",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-04",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "100",
+      "engagementId": "20",
+      "title": "File return",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-04",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "101",
+      "engagementId": "21",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-15",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "102",
+      "engagementId": "21",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-15",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "103",
+      "engagementId": "21",
+      "title": "Test revenue recognition",
+      "assigneeId": "u7",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": "104",
+      "engagementId": "21",
+      "title": "Review audit workpapers",
+      "assigneeId": "u1",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "105",
+      "engagementId": "21",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u8",
+      "dueDate": "2026-10-15",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "106",
+      "engagementId": "22",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u7",
+      "dueDate": "2026-12-20",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "107",
+      "engagementId": "22",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u7",
+      "dueDate": "2026-12-20",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "108",
+      "engagementId": "22",
+      "title": "Test revenue recognition",
+      "assigneeId": "u8",
+      "dueDate": "2026-12-20",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "109",
+      "engagementId": "22",
+      "title": "Review audit workpapers",
+      "assigneeId": "u1",
+      "dueDate": "2026-12-20",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "110",
+      "engagementId": "22",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u7",
+      "dueDate": "2026-12-20",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "111",
+      "engagementId": "23",
+      "title": "Complete control walkthroughs",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-24",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "112",
+      "engagementId": "23",
+      "title": "Collect bank confirmations",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-24",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "113",
+      "engagementId": "23",
+      "title": "Test revenue recognition",
+      "assigneeId": "u8",
+      "dueDate": "2026-11-24",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "114",
+      "engagementId": "23",
+      "title": "Review audit workpapers",
+      "assigneeId": "u8",
+      "dueDate": "2026-11-24",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "115",
+      "engagementId": "23",
+      "title": "Approve final audit opinion",
+      "assigneeId": "u7",
+      "dueDate": "2026-11-24",
+      "priority": "Low",
+      "status": "Planning"
+    },
+    {
+      "id": "116",
+      "engagementId": "24",
+      "title": "Stakeholder interviews",
+      "assigneeId": "u5",
+      "dueDate": "2026-12-14",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": "117",
+      "engagementId": "24",
+      "title": "Current state assessment",
+      "assigneeId": "u5",
+      "dueDate": "2026-12-14",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "118",
+      "engagementId": "24",
+      "title": "Draft recommendations",
+      "assigneeId": "u4",
+      "dueDate": "2026-12-14",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": "119",
+      "engagementId": "24",
+      "title": "Steering committee review",
+      "assigneeId": "u5",
+      "dueDate": "2026-12-14",
+      "priority": "High",
+      "status": "Planning"
+    },
+    {
+      "id": "120",
+      "engagementId": "24",
+      "title": "Deliver final report",
+      "assigneeId": "u4",
+      "dueDate": "2026-12-14",
+      "priority": "High",
+      "status": "Planning"
+    }
+  ],
+  "documents": [
+    {
+      "engagementId": "1",
+      "name": "Audit Planning Memorandum.pdf",
+      "type": "PDF",
+      "sizeKb": 1229,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-10-05",
+      "id": "1"
+    },
+    {
+      "engagementId": "1",
+      "name": "Risk Assessment Matrix.xlsx",
+      "type": "XLSX",
+      "sizeKb": 156,
+      "uploadedById": "u3",
+      "uploadedAt": "2026-10-05",
+      "id": "2"
+    },
+    {
+      "engagementId": "1",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 420,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-10-01",
+      "id": "3"
+    },
+    {
+      "engagementId": "2",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 551,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-15",
+      "id": "4"
+    },
+    {
+      "engagementId": "2",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 244,
+      "uploadedById": "u6",
+      "uploadedAt": "2026-09-15",
+      "id": "5"
+    },
+    {
+      "engagementId": "3",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 531,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-08-18",
+      "id": "6"
+    },
+    {
+      "engagementId": "3",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 352,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-08-18",
+      "id": "7"
+    },
+    {
+      "engagementId": "4",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 463,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-01",
+      "id": "8"
+    },
+    {
+      "engagementId": "4",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 897,
+      "uploadedById": "u3",
+      "uploadedAt": "2026-09-01",
+      "id": "9"
+    },
+    {
+      "engagementId": "5",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 470,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-04",
+      "id": "10"
+    },
+    {
+      "engagementId": "5",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 423,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-04",
+      "id": "11"
+    },
+    {
+      "engagementId": "6",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 443,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-10-05",
+      "id": "12"
+    },
+    {
+      "engagementId": "7",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 257,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-07-28",
+      "id": "13"
+    },
+    {
+      "engagementId": "7",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 467,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-07-28",
+      "id": "14"
+    },
+    {
+      "engagementId": "8",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 252,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-24",
+      "id": "15"
+    },
+    {
+      "engagementId": "8",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 261,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-08-24",
+      "id": "16"
+    },
+    {
+      "engagementId": "9",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 292,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-07-08",
+      "id": "17"
+    },
+    {
+      "engagementId": "9",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 688,
+      "uploadedById": "u2",
+      "uploadedAt": "2026-07-08",
+      "id": "18"
+    },
+    {
+      "engagementId": "10",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 359,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-08",
+      "id": "19"
+    },
+    {
+      "engagementId": "10",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 629,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-09-08",
+      "id": "20"
+    },
+    {
+      "engagementId": "11",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 411,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-11",
+      "id": "21"
+    },
+    {
+      "engagementId": "11",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 158,
+      "uploadedById": "u7",
+      "uploadedAt": "2026-08-11",
+      "id": "22"
+    },
+    {
+      "engagementId": "12",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 512,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-07-06",
+      "id": "23"
+    },
+    {
+      "engagementId": "12",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 430,
+      "uploadedById": "u2",
+      "uploadedAt": "2026-07-06",
+      "id": "24"
+    },
+    {
+      "engagementId": "13",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 418,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-07-20",
+      "id": "25"
+    },
+    {
+      "engagementId": "13",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 756,
+      "uploadedById": "u5",
+      "uploadedAt": "2026-07-20",
+      "id": "26"
+    },
+    {
+      "engagementId": "14",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 348,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-17",
+      "id": "27"
+    },
+    {
+      "engagementId": "14",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 749,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-09-17",
+      "id": "28"
+    },
+    {
+      "engagementId": "15",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 500,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-07-23",
+      "id": "29"
+    },
+    {
+      "engagementId": "15",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 656,
+      "uploadedById": "u6",
+      "uploadedAt": "2026-07-23",
+      "id": "30"
+    },
+    {
+      "engagementId": "16",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 313,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-08-01",
+      "id": "31"
+    },
+    {
+      "engagementId": "16",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 514,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-08-01",
+      "id": "32"
+    },
+    {
+      "engagementId": "17",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 228,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-19",
+      "id": "33"
+    },
+    {
+      "engagementId": "17",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 821,
+      "uploadedById": "u2",
+      "uploadedAt": "2026-08-19",
+      "id": "34"
+    },
+    {
+      "engagementId": "18",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 443,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-07-18",
+      "id": "35"
+    },
+    {
+      "engagementId": "18",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 319,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-07-18",
+      "id": "36"
+    },
+    {
+      "engagementId": "19",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 541,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-08-27",
+      "id": "37"
+    },
+    {
+      "engagementId": "19",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 530,
+      "uploadedById": "u1",
+      "uploadedAt": "2026-08-27",
+      "id": "38"
+    },
+    {
+      "engagementId": "20",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 285,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-27",
+      "id": "39"
+    },
+    {
+      "engagementId": "21",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 220,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-08-13",
+      "id": "40"
+    },
+    {
+      "engagementId": "21",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 558,
+      "uploadedById": "u7",
+      "uploadedAt": "2026-08-13",
+      "id": "41"
+    },
+    {
+      "engagementId": "22",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 571,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-07-17",
+      "id": "42"
+    },
+    {
+      "engagementId": "22",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 612,
+      "uploadedById": "u7",
+      "uploadedAt": "2026-07-17",
+      "id": "43"
+    },
+    {
+      "engagementId": "23",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 249,
+      "uploadedById": "u8",
+      "uploadedAt": "2026-09-01",
+      "id": "44"
+    },
+    {
+      "engagementId": "23",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 147,
+      "uploadedById": "u7",
+      "uploadedAt": "2026-09-01",
+      "id": "45"
+    },
+    {
+      "engagementId": "24",
+      "name": "Engagement Letter.pdf",
+      "type": "PDF",
+      "sizeKb": 259,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-09-21",
+      "id": "46"
+    },
+    {
+      "engagementId": "24",
+      "name": "Working Papers.xlsx",
+      "type": "XLSX",
+      "sizeKb": 439,
+      "uploadedById": "u4",
+      "uploadedAt": "2026-09-21",
+      "id": "47"
+    }
+  ],
+  "activity": [
+    {
+      "id": "1",
+      "userId": "u3",
+      "action": "Completed control walkthroughs",
+      "engagementId": "1",
+      "timestamp": "2026-10-12T09:35:00",
+      "tone": "default"
+    },
+    {
+      "id": "2",
+      "userId": "u1",
+      "action": "Updated audit due date",
+      "engagementId": "1",
+      "timestamp": "2026-10-12T09:00:00",
+      "tone": "default"
+    },
+    {
+      "id": "3",
+      "userId": "u4",
+      "action": "Assigned Olivia Patel",
+      "engagementId": "6",
+      "timestamp": "2026-10-12T08:00:00",
+      "tone": "default"
+    },
+    {
+      "id": "4",
+      "userId": "u1",
+      "action": "Budget alert: 105% used",
+      "engagementId": "3",
+      "timestamp": "2026-10-12T07:00:00",
+      "tone": "warning"
+    },
+    {
+      "id": "5",
+      "userId": "u2",
+      "action": "Moved to Review",
+      "engagementId": "4",
+      "timestamp": "2026-10-11T16:20:00",
+      "tone": "default"
+    },
+    {
+      "id": "6",
+      "userId": "u6",
+      "action": "Uploaded tax workpapers",
+      "engagementId": "2",
+      "timestamp": "2026-10-11T11:05:00",
+      "tone": "default"
+    }
+  ]
+}
