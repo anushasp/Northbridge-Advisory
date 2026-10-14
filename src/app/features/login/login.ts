@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angu
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth/auth-service';
+import { DEMO_ACCOUNT } from '../../core/auth/demo-account';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,14 @@ export class Login {
   protected readonly submitting = signal(false);
   protected readonly serverError = signal<string | null>(null);
   protected readonly showPassword = signal(false);
+
+  protected readonly demo = DEMO_ACCOUNT;
+
+  /** Fills the form with the demo account so visitors can sign in with one click. */
+  protected useDemoAccount(): void {
+    this.form.patchValue({ email: this.demo.email, password: this.demo.password });
+    this.serverError.set(null);
+  }
 
   protected submit(): void {
     if (this.form.invalid) {

@@ -146,3 +146,40 @@ form {
 .fine-print {
   margin-top: var(--space-6);
 }
+
+.demo {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-muted-surface);
+  text-align: left;
+  font: var(--font-label);
+}
+
+.demo-title {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+.demo dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-3);
+}
+
+.demo dt {
+  color: var(--color-text-secondary);
+}
+
+.demo dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  word-break: break-all;
+}
+
+.link-btn {
+  font: inherit;
+  font-weight: 500;
+}

@@ -81,6 +81,17 @@
       </button>
     </form>
 
+    <aside class="demo" aria-labelledby="demo-title">
+      <p id="demo-title" class="demo-title">Demo account</p>
+      <dl>
+        <dt>Email</dt>
+        <dd>{{ demo.email }}</dd>
+        <dt>Password</dt>
+        <dd>{{ demo.password }}</dd>
+      </dl>
+      <button type="button" class="link-btn" (click)="useDemoAccount()">Fill in demo account</button>
+    </aside>
+
     <p class="fine-print">
       Authorized Northbridge personnel only.<br />
       Contact IT if you need access.

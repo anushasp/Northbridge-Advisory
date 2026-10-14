@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { AuthService } from '../../core/auth/auth-service';
+import { DEMO_ACCOUNT } from '../../core/auth/demo-account';
 import { Login } from './login';
 
 describe('Login', () => {
@@ -58,6 +59,15 @@ describe('Login', () => {
 
     expect(login).toHaveBeenCalledWith('test@northbridge.com', 'password123', true);
     expect(navigate).toHaveBeenCalledWith('/dashboard');
+  });
+
+  it('fills in the demo account', async () => {
+    const { el, fixture } = await setup();
+    const fill = [...el.querySelectorAll('button')].find((b) => b.textContent?.includes('Fill in demo account'))!;
+    fill.click();
+    fixture.detectChanges();
+    expect(el.querySelector<HTMLInputElement>('#email')!.value).toBe(DEMO_ACCOUNT.email);
+    expect(el.querySelector<HTMLInputElement>('#password')!.value).toBe(DEMO_ACCOUNT.password);
   });
 
   it('shows an alert for invalid credentials', async () => {
