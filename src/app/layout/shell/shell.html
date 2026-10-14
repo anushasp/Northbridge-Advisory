@@ -1,0 +1,111 @@
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="layout" [class.collapsed]="compact()">
+  @if (mobileNavOpen()) {
+    <div class="scrim" (click)="closeMobileNav()" aria-hidden="true"></div>
+  }
+
+  <aside class="sidebar" [class.open]="mobileNavOpen()" aria-label="Primary">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">N</span>
+      @if (!compact()) {
+        <span class="brand-text">
+          <strong>Northbridge Advisory</strong>
+          <span>EngageTrack</span>
+        </span>
+      }
+    </div>
+
+    <nav>
+      <ul class="nav-list">
+        @for (item of nav(); track item.path) {
+          <li>
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMobileNav()"
+              [attr.title]="compact() ? item.label : null"
+            >
+              <span class="nav-label">{{ compact() ? item.label.charAt(0) : item.label }}</span>
+              @if (item.badge && !compact()) {
+                <span class="nav-badge">{{ item.badge }}</span>
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    @if (!compact()) {
+      <p class="workspace">
+        <span>NORTHBRIDGE WORKSPACE</span>
+        <span>Audit · Tax · Consulting</span>
+      </p>
+    }
+
+    <div class="sidebar-footer">
+      <button type="button" class="collapse-btn" (click)="toggleCollapsed()" [attr.aria-expanded]="!compact()">
+        {{ compact() ? '›' : '‹ Collapse sidebar' }}
+      </button>
+      @if (auth.user(); as user) {
+        <div class="sidebar-user">
+          <span class="avatar">{{ user.initials }}</span>
+          @if (!compact()) {
+            <span>
+              <strong>{{ user.name }}</strong>
+              <small>{{ user.title }}</small>
+            </span>
+          }
+        </div>
+      }
+    </div>
+  </aside>
+
+  <div class="main-column">
+    <header class="topbar">
+      <button
+        type="button"
+        class="menu-btn"
+        (click)="mobileNavOpen.set(true)"
+        aria-label="Open navigation"
+      >
+        <app-icon name="menu" [size]="20" />
+      </button>
+
+      <form class="search" role="search" (submit)="$event.preventDefault(); globalSearch(searchInput.value); searchInput.value = ''">
+        <label class="visually-hidden" for="global-search">Search engagements</label>
+        <app-icon name="search" />
+        <input #searchInput id="global-search" type="search" placeholder="Search clients and engagements…" />
+      </form>
+
+      <div class="topbar-actions">
+        <button type="button" class="icon-btn" aria-label="Notifications, 3 unread">
+          <app-icon name="bell" [size]="18" /><span class="dot">3</span>
+        </button>
+        <div class="user-menu">
+          <button
+            type="button"
+            class="avatar-btn"
+            (click)="userMenuOpen.update((v) => !v)"
+            [attr.aria-expanded]="userMenuOpen()"
+            aria-haspopup="menu"
+          >
+            <span class="avatar">{{ auth.user()?.initials }}</span>
+            <app-icon name="chevronDown" />
+          </button>
+          @if (userMenuOpen()) {
+            <ul class="menu card" role="menu">
+              <li role="none"><a role="menuitem" routerLink="/settings" (click)="userMenuOpen.set(false)">Settings</a></li>
+              <li role="none"><button role="menuitem" type="button" (click)="auth.logout()">Sign out</button></li>
+            </ul>
+          }
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="content" tabindex="-1">
+      <router-outlet />
+    </main>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <p class="caption intro">Set the scope, ownership, and budget. * Required fields</p>
+
+  @if (serverError(); as message) {
+    <div class="alert-banner" role="alert"><p>{{ message }}</p></div>
+  }
+
+  <div class="form-grid">
+    <div class="field full">
+      <label for="ef-client">Client *</label>
+      <input id="ef-client" class="input" formControlName="client" list="ef-clients" placeholder="Select or type a client"
+        [attr.aria-invalid]="showError('client')" aria-describedby="ef-client-err" />
+      <datalist id="ef-clients">
+        @for (c of clients(); track c) {
+          <option [value]="c"></option>
+        }
+      </datalist>
+      <span id="ef-client-err" class="field-error">@if (showError('client')) {Client is required.}</span>
+    </div>
+
+    <div class="field full">
+      <label for="ef-name">Engagement Name *</label>
+      <input id="ef-name" class="input" formControlName="name" placeholder="e.g. FY2026 Financial Audit"
+        [attr.aria-invalid]="showError('name')" aria-describedby="ef-name-err" />
+      <span id="ef-name-err" class="field-error">@if (showError('name')) {Engagement name is required (80 characters max).}</span>
+    </div>
+
+    <div class="field">
+      <label for="ef-line">Service Line *</label>
+      <select id="ef-line" class="select" formControlName="serviceLine" [attr.aria-invalid]="showError('serviceLine')"
+        aria-describedby="ef-line-err">
+        <option value="" disabled>Select service line</option>
+        @for (line of serviceLines; track line) {
+          <option [value]="line">{{ line }}</option>
+        }
+      </select>
+      <span id="ef-line-err" class="field-error">@if (showError('serviceLine')) {Choose a service line.}</span>
+    </div>
+
+    <div class="field">
+      <label for="ef-manager">Engagement Manager *</label>
+      <select id="ef-manager" class="select" formControlName="managerId" [attr.aria-invalid]="showError('managerId')"
+        aria-describedby="ef-manager-err">
+        <option value="" disabled>Select manager</option>
+        @for (m of team.managers(); track m.id) {
+          <option [value]="m.id">{{ m.name }}</option>
+        }
+      </select>
+      <span id="ef-manager-err" class="field-error">@if (showError('managerId')) {Choose a manager.}</span>
+    </div>
+
+    <div class="field">
+      <label for="ef-start">Start Date *</label>
+      <input id="ef-start" class="input" type="date" formControlName="startDate" [attr.aria-invalid]="showError('startDate')"
+        aria-describedby="ef-start-err" />
+      <span id="ef-start-err" class="field-error">@if (showError('startDate')) {Start date is required.}</span>
+    </div>
+
+    <div class="field">
+      <label for="ef-due">Due Date *</label>
+      <input id="ef-due" class="input" type="date" formControlName="dueDate"
+        [attr.aria-invalid]="showError('dueDate') || (form.hasError('dateRange') && form.controls.dueDate.touched)"
+        aria-describedby="ef-due-err" />
+      <span id="ef-due-err" class="field-error">
+        @if (showError('dueDate')) {
+          Due date is required.
+        } @else if (form.hasError('dateRange') && form.controls.dueDate.touched) {
+          Due date must be on or after the start date.
+        }
+      </span>
+    </div>
+
+    <div class="field full">
+      <label for="ef-budget">Budget Hours *</label>
+      <input id="ef-budget" class="input" type="number" min="1" formControlName="budgetHours" placeholder="Enter budgeted hours"
+        [attr.aria-invalid]="showError('budgetHours')" aria-describedby="ef-budget-err" />
+      <span id="ef-budget-err" class="field-error">@if (showError('budgetHours')) {Enter a number of hours between 1 and 5,000.}</span>
+    </div>
+
+    <div class="field full">
+      <label for="ef-desc">Description</label>
+      <textarea id="ef-desc" class="input" formControlName="description" rows="3"
+        placeholder="Describe the engagement scope and objectives"></textarea>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" class="btn btn-secondary" (click)="cancelled.emit()">Cancel</button>
+    <button type="submit" class="btn btn-primary" [disabled]="saving()">{{ saving() ? 'Saving…' : 'Save' }}</button>
+  </div>
+</form>

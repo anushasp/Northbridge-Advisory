@@ -1,0 +1,110 @@
+<div class="head">
+  <div>
+    <h2 class="section-title">{{ engagement().serviceLine }} workflow</h2>
+    <p class="caption">
+      {{ tasks().length }} tasks · {{ completedCount() }} completed · {{ overdue().length }} overdue
+    </p>
+  </div>
+  <div class="actions">
+    <label class="visually-hidden" for="assignee-filter">Filter by assignee</label>
+    <select id="assignee-filter" class="select" (change)="assigneeFilter.set($any($event.target).value)">
+      <option value="">All assignees</option>
+      @for (m of assignees(); track m.id) {
+        <option [value]="m.id">{{ m.name }}</option>
+      }
+    </select>
+    <button type="button" class="btn btn-primary" (click)="openAdd()"><app-icon name="plus" /> Add Task</button>
+  </div>
+</div>
+
+@if (overdue().length && !bannerDismissed()) {
+  @let first = overdue()[0];
+  <div class="alert-banner" role="status">
+    <app-icon name="info" />
+    <p>
+      <strong>{{ overdue().length }} {{ overdue().length === 1 ? 'task is' : 'tasks are' }} overdue</strong><br />
+      <span class="caption-blue">
+        {{ first.title }} was due {{ first.dueDate | date: 'MMMM d' }}. Follow up with {{ team.name(first.assigneeId) }}.
+      </span>
+    </p>
+    <button type="button" class="icon-btn" (click)="bannerDismissed.set(true)" aria-label="Dismiss"><app-icon name="x" /></button>
+  </div>
+}
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th scope="col" class="check-col"><span class="visually-hidden">Done</span></th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Assignee</th>
+        <th scope="col" aria-sort="ascending">Due Date ↑</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (t of visible(); track t.id) {
+        @let late = daysOverdue(t);
+        <tr [class.done]="t.status === 'Completed'">
+          <td class="check-col">
+            <input type="checkbox" [checked]="t.status === 'Completed'" (change)="toggleDone(t)"
+              [attr.aria-label]="'Mark ' + t.title + (t.status === 'Completed' ? ' not done' : ' done')" />
+          </td>
+          <td class="title">{{ t.title }}</td>
+          <td>{{ team.name(t.assigneeId) }}</td>
+          <td class="nowrap">
+            {{ t.dueDate | date: 'MMM dd, y' }}
+            @if (late > 0) {
+              <span class="overdue">Overdue · {{ late }} {{ late === 1 ? 'day' : 'days' }}</span>
+            }
+          </td>
+          <td><app-status-badge [status]="t.priority" /></td>
+          <td><app-status-badge [status]="t.status" /></td>
+        </tr>
+      } @empty {
+        <tr><td colspan="6" class="muted">{{ loaded() ? 'No tasks yet.' : 'Loading…' }}</td></tr>
+      }
+    </tbody>
+  </table>
+</div>
+<p class="caption footnote">Task completion updates the {{ engagement().serviceLine | lowercase }} workflow, not logged hours.</p>
+
+<app-modal heading="Add Task" [(open)]="addOpen">
+  <form [formGroup]="addForm" (ngSubmit)="addTask()" novalidate>
+    <div class="form-grid">
+      <div class="field full">
+        <label for="t-title">Task Name *</label>
+        <input id="t-title" class="input" formControlName="title" [attr.aria-invalid]="showError('title')" aria-describedby="t-title-err" />
+        <span id="t-title-err" class="field-error">@if (showError('title')) {Task name is required.}</span>
+      </div>
+      <div class="field">
+        <label for="t-assignee">Assignee *</label>
+        <select id="t-assignee" class="select" formControlName="assigneeId" [attr.aria-invalid]="showError('assigneeId')" aria-describedby="t-assignee-err">
+          <option value="" disabled>Select a team member</option>
+          @for (m of assignees(); track m.id) {
+            <option [value]="m.id">{{ m.name }}</option>
+          }
+        </select>
+        <span id="t-assignee-err" class="field-error">@if (showError('assigneeId')) {Choose an assignee.}</span>
+      </div>
+      <div class="field">
+        <label for="t-due">Due Date *</label>
+        <input id="t-due" class="input" type="date" formControlName="dueDate" [attr.aria-invalid]="showError('dueDate')" aria-describedby="t-due-err" />
+        <span id="t-due-err" class="field-error">@if (showError('dueDate')) {Due date is required.}</span>
+      </div>
+      <div class="field full">
+        <label for="t-priority">Priority</label>
+        <select id="t-priority" class="select" formControlName="priority">
+          @for (p of priorities; track p) {
+            <option [value]="p">{{ p }}</option>
+          }
+        </select>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="addOpen.set(false)">Cancel</button>
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </div>
+  </form>
+</app-modal>

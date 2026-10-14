@@ -1,0 +1,87 @@
+/*
+ * Design tokens from the Figma file "Northbridge Advisory"
+ * (EngageTrack / Foundations). Light values are exact from Figma.
+ * Dark values are a first pass; adjust once dark mode is finalized in Figma.
+ */
+:root {
+  /* Brand and surfaces */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-sidebar: #111827;
+  --color-sidebar-active: #1e293b;
+  --color-app-bg: #f8fafc;
+  --color-card: #ffffff;
+  --color-muted-surface: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  /* Text */
+  --color-text-primary: #111827;
+  --color-text-secondary: #64748b;
+  --color-text-on-dark: #f8fafc;
+  --color-text-success: #166534;
+  --color-text-warning: #92400e;
+  --color-text-info: #075985;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #0284c7;
+  --color-blue-soft: #eff6ff;
+  --color-success-soft: #f0fdf4;
+  --color-warning-soft: #fffbeb;
+  --color-error-soft: #fef2f2;
+
+  /* Typography (Inter) */
+  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-page-title: 600 28px/1.25 var(--font-family);
+  --font-page-title-sm: 600 24px/1.25 var(--font-family);
+  --font-section: 600 18px/1.3 var(--font-family);
+  --font-section-sm: 600 16px/1.3 var(--font-family);
+  --font-body: 400 14px/1.45 var(--font-family);
+  --font-label: 400 13px/1.4 var(--font-family);
+  --font-caption: 400 12px/1.4 var(--font-family);
+
+  /* Spacing (8px rhythm, with 4 and 12 used in components) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius: 6px buttons, 8px controls, 12px cards */
+  --radius-button: 6px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-popover: 0 8px 24px rgb(15 23 42 / 0.12);
+  --shadow-modal: 0 20px 48px rgb(15 23 42 / 0.2);
+
+  --sidebar-width: 224px;
+  --topbar-height: 64px;
+}
+
+:root[data-theme='dark'] {
+  --color-app-bg: #0b1220;
+  --color-card: #111827;
+  --color-muted-surface: #1e293b;
+  --color-border: #334155;
+  --color-sidebar: #030712;
+  --color-sidebar-active: #1e293b;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4);
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-blue-soft: #172554;
+  --color-success-soft: #052e16;
+  --color-warning-soft: #451a03;
+  --color-error-soft: #450a0a;
+  --color-text-success: #86efac;
+  --color-text-warning: #fcd34d;
+  --color-text-info: #7dd3fc;
+}

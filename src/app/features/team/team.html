@@ -1,0 +1,95 @@
+<header class="page-header">
+  <div>
+    <h1 class="page-title">Team</h1>
+    <p class="page-subtitle">Manage team members and engagement assignments.</p>
+  </div>
+</header>
+
+<div class="toolbar" role="search">
+  <div class="field grow">
+    <label for="team-search">Search</label>
+    <input id="team-search" class="input" type="search" placeholder="Search team members"
+      [value]="search()" (input)="search.set($any($event.target).value)" />
+  </div>
+  <div class="field">
+    <label for="team-role">Role</label>
+    <select id="team-role" class="select" (change)="role.set($any($event.target).value)">
+      <option value="">All roles</option>
+      @for (r of roles; track r) {
+        <option [value]="r">{{ r }}</option>
+      }
+    </select>
+  </div>
+</div>
+
+<p class="caption summary" aria-live="polite">
+  {{ team.members().length }} team members · Showing {{ filtered().length }} of {{ team.members().length }} ·
+  {{ now | date: 'MMMM y' }}
+</p>
+
+<ul class="grid">
+  @for (m of filtered(); track m.id) {
+    @let u = util(m);
+    <li class="card member">
+      <div class="who">
+        <span class="avatar">{{ m.initials }}</span>
+        <div>
+          <strong>{{ m.name }}</strong>
+          <span class="caption">{{ m.role }}</span>
+        </div>
+      </div>
+      <p class="caption">Monthly utilization</p>
+      <app-progress-bar [percent]="m.utilization" [label]="u.label" [tone]="u.tone" [ariaLabel]="m.name + ' utilization'" />
+      <p class="foot">
+        {{ assignmentsFor(m.id).length }} active engagements ·
+        <button type="button" class="link-btn" (click)="open(m)" [attr.aria-label]="'View details for ' + m.name">View details</button>
+      </p>
+    </li>
+  } @empty {
+    <li class="card empty"><strong>No team members found</strong><p>Try a different name or role.</p></li>
+  }
+</ul>
+
+<section class="card guide" aria-labelledby="guide-title">
+  <h2 id="guide-title" class="section-title">Capacity guide</h2>
+  <p class="muted">
+    Available: below 70% · Healthy utilization: 70–90% · High utilization: above 90%.
+    Utilization compares scheduled monthly hours with available hours.
+  </p>
+</section>
+
+<app-modal heading="Team member details" variant="sheet" [(open)]="panelOpen">
+  @if (selected(); as m) {
+    @let u = util(m);
+    <div class="panel">
+      <span class="avatar big">{{ m.initials }}</span>
+      <h3 class="name">{{ m.name }}</h3>
+      <p class="muted">{{ m.role }} · {{ m.title }}</p>
+      <a [href]="'mailto:' + m.email">{{ m.email }}</a>
+
+      <div class="card util">
+        <h4 class="section-sm">{{ now | date: 'MMMM' }} utilization</h4>
+        <app-progress-bar [percent]="m.utilization" [label]="u.label" [tone]="u.tone" ariaLabel="Utilization" />
+        <p class="caption">
+          {{ (m.availableHours * m.utilization) / 100 | number: '1.0-1' }} scheduled / {{ m.availableHours }} available hours
+        </p>
+      </div>
+
+      <h4 class="section-title">Assigned engagements ({{ selectedAssignments().length }})</h4>
+      <ul class="assignments">
+        @for (e of selectedAssignments(); track e.id) {
+          <li>
+            <strong>{{ e.client }}</strong>
+            <a [routerLink]="['/engagements', e.id]" (click)="panelOpen.set(false)">{{ e.name }}</a>
+            <span class="caption">Due {{ e.dueDate | date: 'MMM d' }}</span>
+            <app-status-badge [status]="e.status" />
+          </li>
+        } @empty {
+          <li class="muted">No active engagements.</li>
+        }
+      </ul>
+
+      <button type="button" class="btn btn-secondary close" (click)="panelOpen.set(false)">Close</button>
+    </div>
+  }
+</app-modal>

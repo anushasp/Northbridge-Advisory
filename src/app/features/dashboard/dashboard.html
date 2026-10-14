@@ -1,0 +1,103 @@
+<header class="greeting">
+  <h1 class="page-title">Welcome back, {{ firstName() }}</h1>
+  <p class="page-subtitle">{{ today | date: 'EEEE, MMMM d, y' }}</p>
+  @if (!loading()) {
+    <p class="summary">
+      You have {{ dueThisWeek().length }} engagements due this week.
+      {{ overBudget().length }} {{ overBudget().length === 1 ? 'budget needs' : 'budgets need' }} your attention.
+    </p>
+  }
+</header>
+
+<section class="kpis" aria-label="Key metrics">
+  @if (loading()) {
+    @for (i of [1, 2, 3, 4]; track i) {
+      <div class="skeleton kpi-skeleton"></div>
+    }
+  } @else {
+    <app-kpi-card label="Active Engagements" [value]="active().length" [hint]="startedThisMonth() + ' started this month'" />
+    <app-kpi-card
+      label="Due This Week"
+      [value]="dueThisWeek().length"
+      [hint]="dueThisWeek().length ? 'Next deadline: ' + (dueThisWeek()[0].dueDate | date: 'MMM d') : 'Nothing due'"
+    />
+    <app-kpi-card label="Over Budget" [value]="overBudget().length" hint="Requires manager attention" tone="warning" />
+    <app-kpi-card
+      label="Hours Logged This Month"
+      [value]="(hoursLogged() | number: '1.0-0') ?? '0'"
+      [hint]="'Across ' + active().length + ' active engagements'"
+    />
+  }
+</section>
+
+<div class="middle">
+  <section class="card chart-card" aria-labelledby="chart-title">
+    <h2 id="chart-title" class="section-title">Engagement Hours by Service Line</h2>
+    <p class="caption">Active engagements · Hours</p>
+    @if (loading()) {
+      <div class="skeleton chart-skeleton"></div>
+    } @else {
+      <app-hours-chart [bars]="chartBars()" />
+      <p class="caption chart-total">
+        Actual: {{ hoursLogged() | number: '1.0-0' }} hours · Budget: {{ totalBudget() | number: '1.0-0' }} hours
+      </p>
+    }
+  </section>
+
+  <section class="card activity-card" aria-labelledby="activity-title">
+    <h2 id="activity-title" class="section-title">Recent Activity</h2>
+    <ul class="activity">
+      @for (item of activity(); track item.id) {
+        @let member = team.member(item.userId);
+        <li>
+          <span class="avatar">{{ member?.initials }}</span>
+          <div>
+            <strong>{{ member?.name }}</strong>
+            <p [class.warn]="item.tone === 'warning'">{{ item.action }}</p>
+            <p class="caption">
+              {{ engagementById().get(item.engagementId)?.client }} · {{ item.timestamp | timeAgo }}
+            </p>
+          </div>
+        </li>
+      } @empty {
+        @for (i of [1, 2, 3]; track i) {
+          <li><div class="skeleton line-skeleton"></div></li>
+        }
+      }
+    </ul>
+  </section>
+</div>
+
+<section class="card deadlines" aria-labelledby="deadlines-title">
+  <h2 id="deadlines-title" class="section-title">Upcoming Deadlines</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Client</th>
+          <th scope="col">Engagement</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (e of upcoming(); track e.id) {
+          <tr>
+            <td>{{ e.client }}</td>
+            <td><a [routerLink]="['/engagements', e.id]">{{ e.name }}</a></td>
+            <td>{{ e.dueDate | date: 'MMM d, y' }}</td>
+            <td><app-status-badge [status]="e.status" /></td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4" class="muted">{{ loading() ? 'Loading…' : 'No deadlines in the next 7 days.' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">
+    Showing {{ upcoming().length }} of {{ dueThisWeek().length }} deadlines this week ·
+    <a routerLink="/engagements" [queryParams]="{ sort: 'dueDate:asc' }">View all</a>
+  </p>
+</section>

@@ -1,0 +1,100 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.summary {
+  margin-top: var(--space-6);
+  color: var(--color-text-secondary);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.kpi-skeleton {
+  height: 116px;
+}
+
+.middle {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.chart-card,
+.activity-card,
+.deadlines {
+  padding: var(--space-6);
+}
+
+.chart-card .caption {
+  margin: var(--space-2) 0 var(--space-12);
+}
+
+.chart-card .chart-total {
+  margin: var(--space-6) 0 0;
+}
+
+.chart-skeleton {
+  height: 260px;
+}
+
+.activity {
+  list-style: none;
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.activity li {
+  display: flex;
+  gap: var(--space-3);
+  font: var(--font-label);
+}
+
+.activity strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.activity .warn {
+  color: var(--color-text-warning);
+}
+
+.line-skeleton {
+  width: 100%;
+  height: 48px;
+}
+
+.deadlines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.deadlines a {
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .middle {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,49 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.alert-banner {
+  margin-bottom: var(--space-6);
+}
+
+.caption-blue {
+  font: var(--font-label);
+}
+
+.check-col {
+  width: 44px;
+}
+
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+tr.done .title {
+  color: var(--color-text-secondary);
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.overdue {
+  display: block;
+  font: var(--font-caption);
+  color: var(--color-error);
+}
+
+.footnote {
+  margin-top: var(--space-6);
+}

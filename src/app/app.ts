@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PreferencesService } from './core/prefs/preferences-service';
+import { ToastOutlet } from './shared/toast/toast-outlet';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  imports: [RouterOutlet, ToastOutlet],
+  template: '<router-outlet /><app-toast-outlet />',
 })
 export class App {
-  protected readonly title = signal('engagetrack');
+  // Created at startup so the saved theme is applied before any page renders.
+  private readonly prefs = inject(PreferencesService);
 }

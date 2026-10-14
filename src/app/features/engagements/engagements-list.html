@@ -1,0 +1,218 @@
+<header class="page-header">
+  <div>
+    <h1 class="page-title">Engagements</h1>
+    <p class="page-subtitle">Manage and monitor client engagements.</p>
+  </div>
+  <button type="button" class="btn btn-primary new-btn" (click)="openNew()">
+    <app-icon name="plus" /> New Engagement
+  </button>
+</header>
+
+<div class="toolbar" role="search">
+  <label class="search-box">
+    <span class="visually-hidden">Search engagements</span>
+    <app-icon name="search" />
+    <input type="search" [formControl]="search" placeholder="Search engagements" />
+  </label>
+
+  @if (isMobile()) {
+    <button type="button" class="btn btn-secondary" (click)="showFilters.update((v) => !v)" [attr.aria-expanded]="showFilters()">
+      <app-icon name="filter" /> Filters
+    </button>
+  }
+
+  @if (!isMobile() || showFilters()) {
+    <div class="filters">
+      <label class="visually-hidden" for="f-status">Status</label>
+      <select id="f-status" class="select" (change)="setParams({ status: $any($event.target).value || null })">
+        <option value="" [selected]="!query().status">Status: All</option>
+        @for (s of statuses; track s) {
+          <option [value]="s" [selected]="query().status === s">{{ s }}</option>
+        }
+      </select>
+
+      <label class="visually-hidden" for="f-line">Service line</label>
+      <select id="f-line" class="select" (change)="setParams({ line: $any($event.target).value || null })">
+        <option value="" [selected]="!query().serviceLine">Service Line: All</option>
+        @for (l of serviceLines; track l) {
+          <option [value]="l" [selected]="query().serviceLine === l">{{ l }}</option>
+        }
+      </select>
+
+      <label class="visually-hidden" for="f-manager">Engagement manager</label>
+      <select id="f-manager" class="select" (change)="setParams({ manager: $any($event.target).value || null })">
+        <option value="" [selected]="!query().managerId">Manager: All</option>
+        @for (m of team.managers(); track m.id) {
+          <option [value]="m.id" [selected]="query().managerId === m.id">{{ m.name }}</option>
+        }
+      </select>
+
+      <label class="visually-hidden" for="f-sort">Sort by</label>
+      <select id="f-sort" class="select" (change)="setParams({ sort: $any($event.target).value })">
+        @for (o of sortOptions; track o.value) {
+          <option [value]="o.value" [selected]="query().sort === o.value">Sort: {{ o.label }}</option>
+        }
+      </select>
+    </div>
+  }
+</div>
+
+<div class="meta">
+  <span class="caption">{{ filterSummary() }}</span>
+  @if (hasFilters()) {
+    <button type="button" class="link-btn caption-link" (click)="clearFilters()">Clear filters</button>
+  }
+</div>
+
+<div class="meta">
+  <span class="caption" aria-live="polite">
+    @if (selected().size) {
+      <strong class="selected-count">{{ selected().size }} selected</strong> ·
+    }
+    {{ page().total }} engagements
+  </span>
+  @if (selected().size) {
+    <div class="bulk">
+      <button type="button" class="btn btn-secondary btn-sm" (click)="markSelectedCompleted()">Mark completed</button>
+      <button type="button" class="link-btn caption-link" (click)="clearSelection()">Clear selection</button>
+    </div>
+  } @else if (loading()) {
+    <span class="caption">Loading…</span>
+  }
+</div>
+
+@if (error()) {
+  <div class="alert-banner" role="alert">
+    <app-icon name="info" />
+    <p>Couldn't load engagements. Check that the mock API is running, then refresh.</p>
+  </div>
+} @else if (!loading() && page().items.length === 0) {
+  <div class="card empty">
+    <strong>No engagements match your filters</strong>
+    <p>Try a different search or <button type="button" class="link-btn" (click)="clearFilters()">clear all filters</button>.</p>
+  </div>
+} @else if (isMobile()) {
+  <!-- Mobile: stacked cards -->
+  <ul class="cards" [class.dim]="loading()">
+    @for (e of page().items; track e.id) {
+      @let b = budget(e);
+      <li class="card eng-card" [class.selected]="selected().has(e.id)">
+        <div class="eng-card-top">
+          <input type="checkbox" [checked]="selected().has(e.id)" (change)="toggleRow(e.id)"
+            [attr.aria-label]="'Select ' + e.client" />
+          <div class="grow">
+            <strong>{{ e.client }}</strong>
+            <span class="caption">{{ e.code }}</span>
+          </div>
+          <ng-container *ngTemplateOutlet="rowMenu; context: { $implicit: e }" />
+        </div>
+        <a class="eng-name" [routerLink]="['/engagements', e.id]">{{ e.name }}</a>
+        <div class="eng-row"><span class="muted">{{ e.serviceLine }}</span><app-status-badge [status]="e.status" /></div>
+        <dl>
+          <dt>Engagement Manager</dt><dd>{{ team.name(e.managerId) }}</dd>
+          <dt>Due Date</dt><dd>{{ e.dueDate | date: 'MMM dd, y' }}</dd>
+          <dt>Budget Used</dt>
+          <dd><app-progress-bar [percent]="b.pct" [label]="b.label" [tone]="b.tone" ariaLabel="Budget used" /></dd>
+        </dl>
+      </li>
+    }
+  </ul>
+} @else {
+  <!-- Desktop: table -->
+  <div class="table-wrap" [class.dim]="loading()">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col" class="check-col">
+            <input type="checkbox" [checked]="allSelected()" [indeterminate]="someSelected()" (change)="toggleAll()"
+              aria-label="Select all on this page" />
+          </th>
+          <th scope="col">Client</th>
+          <th scope="col">Engagement Name</th>
+          <th scope="col">Service Line</th>
+          <th scope="col">Manager</th>
+          <th scope="col" [attr.aria-sort]="query().sort === 'dueDate:asc' ? 'ascending' : query().sort === 'dueDate:desc' ? 'descending' : 'none'">
+            <button type="button" class="sort-btn" (click)="toggleDueDateSort()">
+              Due Date
+              @if (query().sort?.startsWith('dueDate')) {
+                <span aria-hidden="true">{{ query().sort === 'dueDate:asc' ? '↑' : '↓' }}</span>
+              }
+            </button>
+          </th>
+          <th scope="col">Budget Used</th>
+          <th scope="col">Status</th>
+          <th scope="col"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (e of page().items; track e.id) {
+          @let b = budget(e);
+          <tr [class.selected]="selected().has(e.id)">
+            <td class="check-col">
+              <input type="checkbox" [checked]="selected().has(e.id)" (change)="toggleRow(e.id)"
+                [attr.aria-label]="'Select ' + e.name" />
+            </td>
+            <td>{{ e.client }}</td>
+            <td>
+              <a class="eng-name" [routerLink]="['/engagements', e.id]">{{ e.name }}</a>
+              <span class="caption code">{{ e.code }}</span>
+            </td>
+            <td>{{ e.serviceLine }}</td>
+            <td>{{ team.name(e.managerId) }}</td>
+            <td class="nowrap">{{ e.dueDate | date: 'MMM dd, y' }}</td>
+            <td><app-progress-bar [percent]="b.pct" [label]="b.label" [tone]="b.tone" ariaLabel="Budget used" /></td>
+            <td><app-status-badge [status]="e.status" /></td>
+            <td><ng-container *ngTemplateOutlet="rowMenu; context: { $implicit: e }" /></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+
+<nav class="pagination" aria-label="Pagination">
+  <span class="caption">{{ rangeStart() }}–{{ rangeEnd() }} of {{ page().total }} engagements</span>
+  <div class="pages">
+    <button type="button" class="page-btn" (click)="goToPage(query().page! - 1)" [disabled]="query().page === 1" aria-label="Previous page">
+      <app-icon name="chevronLeft" />
+    </button>
+    @for (p of pageNumbers(); track p) {
+      <button type="button" class="page-btn" [class.current]="p === query().page" (click)="goToPage(p)"
+        [attr.aria-current]="p === query().page ? 'page' : null" [attr.aria-label]="'Page ' + p">{{ p }}</button>
+    }
+    <button type="button" class="page-btn" (click)="goToPage(query().page! + 1)" [disabled]="query().page === totalPages()" aria-label="Next page">
+      <app-icon name="chevronRight" />
+    </button>
+  </div>
+</nav>
+
+<ng-template #rowMenu let-e>
+  <div class="menu-wrap">
+    <button type="button" class="icon-btn" (click)="toggleMenu(e.id, $event)" [attr.aria-expanded]="openMenuId() === e.id"
+      aria-haspopup="menu" [attr.aria-label]="'Actions for ' + e.name">
+      <app-icon name="more" [size]="18" />
+    </button>
+    @if (openMenuId() === e.id) {
+      <ul class="menu card" role="menu" (click)="$event.stopPropagation()">
+        <li role="none"><a role="menuitem" [routerLink]="['/engagements', e.id]">View</a></li>
+        <li role="none"><button role="menuitem" type="button" (click)="openMenuId.set(null); openEdit(e)">Edit</button></li>
+        <li role="none"><button role="menuitem" type="button" class="danger" (click)="openMenuId.set(null); confirmArchive(e)">Archive</button></li>
+      </ul>
+    }
+  </div>
+</ng-template>
+
+<app-modal [heading]="editing() ? 'Edit Engagement' : 'New Engagement'" [(open)]="formOpen">
+  <app-engagement-form [engagement]="editing()" (saved)="onSaved($event)" (cancelled)="formOpen.set(false)" />
+</app-modal>
+
+<app-modal heading="Archive engagement?" [(open)]="confirmOpen">
+  <p class="muted">
+    <strong>{{ archiving()?.name }}</strong> for {{ archiving()?.client }} will be hidden from all lists.
+    Its tasks and documents are kept.
+  </p>
+  <div class="form-actions">
+    <button type="button" class="btn btn-secondary" (click)="confirmOpen.set(false)">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="archive()">Archive</button>
+  </div>
+</app-modal>
